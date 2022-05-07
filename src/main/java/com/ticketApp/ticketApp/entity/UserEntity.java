@@ -39,7 +39,6 @@ public class UserEntity {
 
     @Column(name = "id_event")
     private Integer eventID;
-    //TODO  ManyToOne cu Role
 
     @Column(name = "sex")
     private String sex;
