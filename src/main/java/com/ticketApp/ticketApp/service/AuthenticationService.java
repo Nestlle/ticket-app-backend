@@ -38,7 +38,7 @@ public class AuthenticationService {
         Optional<UserEntity> userEntity = Optional.ofNullable(userRepository.getByEmail(login));
         if (userEntity.isPresent()) {
             return new UserDTO(userEntity.get().getUserID(), userEntity.get().getFirstName(), userEntity.get().getLastName(),
-                    userEntity.get().getAddress(), userEntity.get().getSex(), userEntity.get().getEmail(), "token", "ADMIN");
+                    userEntity.get().getAddress(), userEntity.get().getSex(), userEntity.get().getEmail(), "token", userEntity.get().getRole());
         }
         throw new RuntimeException("Invalid login");
     }

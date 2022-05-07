@@ -56,6 +56,7 @@ public class UserService {
         }
         UserEntity userEntity = Adapter.convertUserSaveDTOToEntity(user);
         userEntity.setPassword(passwordEncoder.encode(CharBuffer.wrap(userEntity.getPassword())));
+        userEntity.setRole("USER");
 
         userRepository.save(userEntity);
     }
