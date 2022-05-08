@@ -1,6 +1,7 @@
 package com.ticketApp.ticketApp.service.adapter;
 
 import com.ticketApp.ticketApp.dto.*;
+import com.ticketApp.ticketApp.entity.CategoryEntity;
 import com.ticketApp.ticketApp.entity.EventEntity;
 import com.ticketApp.ticketApp.entity.TicketEntity;
 import com.ticketApp.ticketApp.entity.UserEntity;
@@ -65,5 +66,12 @@ public class Adapter {
         EventEntity event = modelMapper.map(eventForSaveDTO, EventEntity.class);
 
         return event;
+    }
+
+    public static CategoryDTO convertCategoryEntityToDTO(CategoryEntity categoryEntity){
+        ModelMapper modelMapper = new ModelMapper();
+        CategoryDTO categoryDTO = modelMapper.map(categoryEntity, CategoryDTO.class);
+
+        return categoryDTO;
     }
 }

@@ -25,7 +25,4 @@ public class CategoryEntity {
     @Column(name = "name")
     private String categoryName;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_category")
-    private List<EventEntity> events = new ArrayList<>();
 }
