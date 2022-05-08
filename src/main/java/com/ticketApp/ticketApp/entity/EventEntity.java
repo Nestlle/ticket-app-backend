@@ -49,4 +49,7 @@ public class EventEntity {
 
     @OneToMany(mappedBy="event")
     private Set<TicketEntity> tickets;
+
+    @Column(name = "category_id")
+    private Integer categoryID;
 }

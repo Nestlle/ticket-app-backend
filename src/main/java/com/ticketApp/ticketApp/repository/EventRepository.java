@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface EventRepository extends JpaRepository<EventEntity, Integer> {
 
-    @Query(value = "select e.location, e.date, c.name, e.event_name, e.id_event, e.description, e.photo, e.start_time " +
+    @Query(value = "select e.location, e.date, c.name, e.event_name, e.id_event, e.description, e.photo, e.start_time, e.category_id " +
             " from ticket_app.event e inner join ticket_app.category c on " +
-            " e.id_category = c.id_category " +
+            " e.category_id = c.id_category " +
             " where e.location ilike %:location% and " +
             " e.date between :from and :to and " +
             " c.name = :category",  nativeQuery = true)
