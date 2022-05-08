@@ -25,6 +25,11 @@ public class ReservationController {
     public void saveReservation(@RequestBody SavedReservationDTO savedReservationDTO) throws Exception {
         reservationService.addReservation(savedReservationDTO);
     }
+
+    @PostMapping("/copyToCart/{userId}")
+    public void copyToCart(@RequestBody ViewReservationDTO reservationDTO, @PathVariable Integer userId){
+        reservationService.copyToCart(reservationDTO, userId);
+    }
 //
 //
 //    @GetMapping("/{userID}/{ticketID}")
