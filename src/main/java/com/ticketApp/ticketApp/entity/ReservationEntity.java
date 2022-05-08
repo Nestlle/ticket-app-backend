@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -32,4 +34,6 @@ public class ReservationEntity implements Serializable {
     @Column(name = "nb_reserved_tickets")
     private Integer numberReservedTickets;
 
+    @Column(name = "creation_date")
+    private LocalDate creationDate = LocalDate.now();
 }
