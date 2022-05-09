@@ -30,10 +30,9 @@ public class ReservationController {
     public void copyToCart(@RequestBody ViewReservationDTO reservationDTO, @PathVariable Integer userId){
         reservationService.copyToCart(reservationDTO, userId);
     }
-//
-//
-//    @GetMapping("/{userID}/{ticketID}")
-//    public void deleteCartItem(@PathVariable Integer userID, @PathVariable Integer ticketID) {
-//        reservationService.deleteCartItem(userID, ticketID);
-//    }
+
+    @GetMapping("/{userID}/{ticketID}")
+    public void deleteReservation(@PathVariable Integer userID, @PathVariable Integer ticketID) {
+        reservationService.deleteReservation(userID, ticketID);
+    }
 }

@@ -137,4 +137,8 @@ public class ReservationService {
             reservationRepository.delete(reservationEntity.get());
         }
     }
+
+    public void deleteReservation(Integer userID, Integer ticketID) {
+        reservationRepository.delete(reservationRepository.getReservationByUserIDandTicketID(userID, ticketID));
+    }
 }
