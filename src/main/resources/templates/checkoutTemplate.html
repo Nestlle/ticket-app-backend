@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comanda Ticket Buddy</title>
+</head>
+<body>
+<h3>Salut <span th:text="${cart.name}"></span></h3>
+<p>Plata pentru comanda ta a fost procesata cu succes!</p>
+<p>Numarul rezervarii este: <b><span th:text="${purchaseNumber}"></span></b></p>
+<p>Te rugam sa specifici numarul rezervarii la intrarea in incinta locului unde se tine evenimentul.</p>
+<table>
+    <th>Nume eveniment</th>
+    <th>Bilet</th>
+    <tr th:each="element : ${cart.checkoutElements}">
+        <td th:text="${element.eventName}"></td>
+        <td th:text="${element.ticket}"></td>
+    </tr>
+</table>
+<h4>Total: <span th:text="${cart.total}" LEI></span></h4>
+<h3>Ne vedem la spectacol!</h3>
+
+Multumim! </br>
+Ticket Buddy
+</body>
+</html>

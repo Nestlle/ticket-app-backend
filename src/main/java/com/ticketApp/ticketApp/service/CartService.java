@@ -104,4 +104,9 @@ public class CartService {
     public void deleteCartItem(Integer userID, Integer ticketID) {
         cartRepository.delete(cartRepository.getCartItemByUserIDandTicketID(userID, ticketID));
     }
+
+    public void deleteCart(Integer userID) {
+        List<CartEntity> entities = cartRepository.getCartByUserID(userID);
+        cartRepository.deleteAll(entities);
+    }
 }
