@@ -23,13 +23,13 @@ public class CartController {
     private EmailService emailService;
 
     @GetMapping("/{userID}")
-    private List<ViewCartDTO> getCartItemsByUserID(@PathVariable("userID") Integer userID){
+    private List<ViewCartDTO> getCartItemsByUserID(@PathVariable("userID") Integer userID) {
         return cartService.viewCartItems(userID);
     }
 
     @PostMapping()
     public void saveInCart(@RequestBody AddToCartDTO addedToCartDTO) throws Exception {
-       cartService.addToCart(addedToCartDTO);
+        cartService.addToCart(addedToCartDTO);
     }
 
 
@@ -38,9 +38,12 @@ public class CartController {
         cartService.deleteCartItem(userID, ticketID);
     }
 
+
     @GetMapping("/checkout/{userID}")
     public void checkout(@PathVariable Integer userID) throws MessagingException, UnsupportedEncodingException {
-        emailService.sendHtmlMail(userID);
+        cartService.substractBoughtTickets(userID);
         cartService.deleteCart(userID);
+        emailService.sendHtmlMail(userID);
+
     }
 }
