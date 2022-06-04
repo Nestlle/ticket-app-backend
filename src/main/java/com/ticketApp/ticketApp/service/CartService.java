@@ -104,4 +104,22 @@ public class CartService {
     public void deleteCartItem(Integer userID, Integer ticketID) {
         cartRepository.delete(cartRepository.getCartItemByUserIDandTicketID(userID, ticketID));
     }
+
+
+    public void deleteCart(Integer userID) {
+        List<CartEntity> entities = cartRepository.getCartByUserID(userID);
+        cartRepository.deleteAll(entities);
+    }
+
+    public void substractBoughtTickets(Integer userID){
+        List<CartEntity> cartEntities = new ArrayList<>();
+        cartEntities = cartRepository.getCartByUserID(userID);
+        for(CartEntity cartEntity : cartEntities){
+            TicketEntity ticket = ticketRepository.findByTicketID(cartEntity.getTicket().getTicketID());
+            Integer ticketNb = ticket.getTicketNb();
+            Integer boughtTickets = cartEntity.getNumberOfCartTickets();
+            Integer remainingTickets = ticketNb - boughtTickets;
+            ticket.setTicketNb(remainingTickets);
+        }
+    }
 }

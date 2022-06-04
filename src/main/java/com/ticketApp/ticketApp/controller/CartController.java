@@ -17,18 +17,26 @@ public class CartController {
     private CartService cartService;
 
     @GetMapping("/{userID}")
-    private List<ViewCartDTO> getCartItemsByUserID(@PathVariable("userID") Integer userID){
+    private List<ViewCartDTO> getCartItemsByUserID(@PathVariable("userID") Integer userID) {
         return cartService.viewCartItems(userID);
     }
 
     @PostMapping()
     public void saveInCart(@RequestBody AddToCartDTO addedToCartDTO) throws Exception {
-       cartService.addToCart(addedToCartDTO);
+        cartService.addToCart(addedToCartDTO);
     }
 
 
     @GetMapping("/{userID}/{ticketID}")
     public void deleteCartItem(@PathVariable Integer userID, @PathVariable Integer ticketID) {
         cartService.deleteCartItem(userID, ticketID);
+    }
+
+
+    @GetMapping("/checkout/{userID}")
+    public void checkout(@PathVariable Integer userID) throws MessagingException, UnsupportedEncodingException {
+        cartService.substractBoughtTickets(userID);
+        cartService.deleteCart(userID);
+        emailService.sendHtmlMail(userID);
     }
 }
