@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/api/events/all").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/events/{eventID}").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/events/ticket/{ticketID}").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/events").permitAll()
                 //.antMatchers(HttpMethod.DELETE, "/api/cart/{userID}/{ticketID}").permitAll()
                 .anyRequest().authenticated();
     }
