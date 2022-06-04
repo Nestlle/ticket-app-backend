@@ -3,9 +3,12 @@ package com.ticketApp.ticketApp.controller;
 import com.ticketApp.ticketApp.dto.AddToCartDTO;
 import com.ticketApp.ticketApp.dto.ViewCartDTO;
 import com.ticketApp.ticketApp.service.CartService;
+import com.ticketApp.ticketApp.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,6 +18,9 @@ public class CartController {
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private EmailService emailService;
 
     @GetMapping("/{userID}")
     private List<ViewCartDTO> getCartItemsByUserID(@PathVariable("userID") Integer userID) {
@@ -38,5 +44,6 @@ public class CartController {
         cartService.substractBoughtTickets(userID);
         cartService.deleteCart(userID);
         emailService.sendHtmlMail(userID);
+
     }
 }

@@ -1,5 +1,6 @@
 package com.ticketApp.ticketApp.controller;
 
+import com.ticketApp.ticketApp.dto.CategoryDTO;
 import com.ticketApp.ticketApp.entity.CategoryEntity;
 import com.ticketApp.ticketApp.service.CategoryService;
 import com.ticketApp.ticketApp.service.EventService;
@@ -23,6 +24,11 @@ public class CategoryController {
     private List<String> getAllCategories(){
         return categoryService.getAllCategories()
                 .stream().map(CategoryEntity::getCategoryName).collect(Collectors.toList());
+    }
+
+    @GetMapping("/withId")
+    private List<CategoryDTO> getAllCategoriesWithId(){
+        return categoryService.getAllCategoriesWithId();
     }
 
 }

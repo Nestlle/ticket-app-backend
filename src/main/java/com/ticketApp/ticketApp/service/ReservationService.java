@@ -5,15 +5,13 @@ import com.ticketApp.ticketApp.dto.SavedReservationDTO;
 import com.ticketApp.ticketApp.dto.TicketDTO;
 import com.ticketApp.ticketApp.dto.ViewReservationDTO;
 import com.ticketApp.ticketApp.entity.*;
-import com.ticketApp.ticketApp.repository.EventRepository;
-import com.ticketApp.ticketApp.repository.ReservationRepository;
-import com.ticketApp.ticketApp.repository.TicketRepository;
-import com.ticketApp.ticketApp.repository.UserRepository;
+import com.ticketApp.ticketApp.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReservationService {
@@ -26,6 +24,9 @@ public class ReservationService {
 
     @Autowired
     private EventRepository eventRepository;
+
+    @Autowired
+    private CartRepository cartRepository;
 
     @Autowired
     private EventService eventService;
@@ -100,4 +101,44 @@ public class ReservationService {
         }
     }
 
+    public void copyToCart(ViewReservationDTO reservationDTO, Integer userId) {
+        CartEntity cartEntity = new CartEntity();
+        cartEntity.setUser(userRepository.findByUserID(userId));
+
+        TicketEntity ticketEnt = ticketRepository.findByTicketID(reservationDTO.getTicketID());
+        cartEntity.setTicket(ticketEnt);
+
+        Integer nbExistingTickets = 0;
+        if (reservationDTO.getNumberReservedTickets() > 0) {
+            CartEntity existingCartEntity = cartRepository.getCartItemByUserIDandTicketID(userRepository.findByUserID(userId).getUserID(),
+                    reservationDTO.getTicketID());
+            if(existingCartEntity != null){
+                nbExistingTickets = existingCartEntity.getNumberOfCartTickets() + reservationDTO.getNumberReservedTickets();
+            }
+            else{
+                nbExistingTickets = reservationDTO.getNumberReservedTickets();
+            }
+
+            cartEntity.setNumberOfCartTickets(nbExistingTickets);
+        } else {
+            cartEntity.setNumberOfCartTickets(reservationDTO.getNumberReservedTickets());
+        }
+
+
+        UserTicketPK pk = new UserTicketPK();
+        pk.setUserID(userId);
+        pk.setTicketID(reservationDTO.getTicketID());
+        cartEntity.setId(pk);
+
+        cartRepository.save(cartEntity);
+
+        Optional<ReservationEntity> reservationEntity = Optional.ofNullable(reservationRepository.getReservationByUserIDandTicketID(userId, reservationDTO.getTicketID()));
+        if(reservationEntity.isPresent()){
+            reservationRepository.delete(reservationEntity.get());
+        }
+    }
+
+    public void deleteReservation(Integer userID, Integer ticketID) {
+        reservationRepository.delete(reservationRepository.getReservationByUserIDandTicketID(userID, ticketID));
+    }
 }

@@ -33,5 +33,5 @@ public class EventForSaveDTO {
 
     private byte[] photo;
 
-//    private CategoryEntity category;
+    private Integer categoryID;
 }

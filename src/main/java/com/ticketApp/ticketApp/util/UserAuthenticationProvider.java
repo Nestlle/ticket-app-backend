@@ -37,7 +37,7 @@ public class UserAuthenticationProvider {
         Claims claims = Jwts.claims().setSubject(login);
 
         Date now = new Date();
-        Date validity = new Date(now.getTime() + 3600000); // 1 hour
+        Date validity = new Date(now.getTime() + 360000000);
 
         return Jwts.builder()
                 .setSubject(login)
