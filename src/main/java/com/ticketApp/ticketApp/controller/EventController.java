@@ -33,8 +33,15 @@ public class EventController {
     }
 
     @PostMapping("/admin-event")
-    public void createEvent(@RequestBody EventForSaveDTO event) {
-        eventService.createEvent(event);
+    public EventForSaveDTO createEvent(@RequestBody EventForSaveDTO event) {
+        Integer eventID = eventService.createEvent(event);
+        event.setEventID(eventID);
+        return event;
+    }
+
+    @GetMapping("/admin-event/{eventID}")
+        public EventForSaveDTO getEventsForSave(@PathVariable final Integer eventID){
+            return eventService.getEventByIDForAdmin(eventID);
     }
 
     @PostMapping()
