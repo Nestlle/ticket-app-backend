@@ -42,8 +42,8 @@ public class CartController {
     @GetMapping("/checkout/{userID}")
     public void checkout(@PathVariable Integer userID) throws MessagingException, UnsupportedEncodingException {
         cartService.substractBoughtTickets(userID);
-        cartService.deleteCart(userID);
         emailService.sendHtmlMail(userID);
+        cartService.deleteCart(userID);
 
     }
 }

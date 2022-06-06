@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--<!DOCTYPE html "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Comanda TicketBuddy</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+</head>
+<body>
+<!--<h3>Salut <span th:text="${cart.name}"></span></h3>-->
+<!--<p>Plata pentru comanda ta a fost procesata cu succes!</p>-->
+<!--<p>Numarul comenzii este: <b><span th:text="${purchaseNumber}"></span></b></p>-->
+<!--<p>Te rugam sa prezinți acest email în format electronic sau tipărit la intrarea in incinta locului unde se tine evenimentul.</p>-->
+<!--<table>-->
+<!--    <th>Nume eveniment</th>-->
+<!--    <th>Bilet</th>-->
+<!--    <tr th:each="element : ${cart.checkoutElements}">-->
+<!--        <td th:text="${element.eventName}"></td>-->
+<!--        <td th:text="${element.ticket}"></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<h4>Total: <span th:text="${cart.total}"> RON </span></h4>-->
+<!--<h3>Ne vedem în curând!</h3>-->
+
+<!--Multumim! </br>-->
+<!--<p>TicketBuddy</p>-->
+
+<div class="es-wrapper-color">
+<!--    &lt;!&ndash;[if gte mso 9]>-->
+<!--    <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">-->
+<!--        <v:fill type="tile" color="#fafafa"></v:fill>-->
+<!--    </v:background>-->
+<!--    <![endif]&ndash;&gt;-->
+    <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
+        <tbody>
+        <tr>
+            <td class="esd-email-paddings" valign="top">
+                <table class="es-header esd-header-popover" cellspacing="0" cellpadding="0" align="center">
+                    <tbody>
+                    <tr>
+                        <td class="esd-stripe" esd-custom-block-id="388981" align="center">
+                            <table class="es-header-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+                                <tbody>
+                                <tr>
+                                    <td class="esd-structure es-p20" align="left">
+                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td class="es-m-p0r esd-container-frame" width="560" valign="top" align="center">
+                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="esd-block-image es-p10b" style="font-size: 0px;" align="center">
+                                                                <a target="_blank"><img src="https://i.pinimg.com/originals/73/d2/7b/73d27b11eb5c07633c170985207e18d1.jpg" alt="Logo" style="display: block; font-size: 12px;" title="Logo" width="200"/></a>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="es-content" cellspacing="0" cellpadding="0" align="center">
+                    <tbody>
+                    <tr>
+                        <td class="esd-stripe" align="center">
+                            <table class="es-content-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+                                <tbody>
+                                <tr>
+                                    <td class="esd-structure es-p15t es-p20r es-p20l" align="left">
+                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td class="esd-container-frame" width="560" valign="top" align="center">
+                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="esd-block-text es-p10b es-m-txt-c" align="center">
+                                                                <h1 style="font-size: 46px; line-height: 100%;">Salut, <span th:text="${cart.name}"></span><br></h1>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="es-content" cellspacing="0" cellpadding="0" align="center">
+                    <tbody>
+                    <tr>
+                        <td class="esd-stripe" align="center">
+                            <table class="es-content-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff" align="center">
+                                <tbody>
+                                <tr>
+                                    <td class="esd-structure es-p20t es-p10b es-p20r es-p20l" align="left">
+                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td class="esd-container-frame" width="560" valign="top" align="center">
+                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="esd-block-text es-p5t es-p5b es-p40r es-p40l es-m-p0r es-m-p0l" align="center">
+                                                                <p>Plata pentru comanda ta a fost procesata cu succes!
+                                                                    <br>Numarul comenzii este: <b><span th:text="${purchaseNumber}"></span></b>
+                                                                    <br>Te rugam sa prezinți acest email în format electronic sau tipărit la intrarea in incinta locului unde se tine evenimentul.<b></b>
+                                                                <br>
+                                                                <br>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!--<table>-->
+                                <!--    <th>Nume eveniment</th>-->
+                                <!--    <th>Bilet</th>-->
+                                <!--    <tr th:each="element : ${cart.checkoutElements}">-->
+                                <!--        <td th:text="${element.eventName}"></td>-->
+                                <!--        <td th:text="${element.ticket}"></td>-->
+                                <!--    </tr>-->
+                                <!--</table>-->
+                                <tr>
+                                    <td class="esd-structure es-p10t es-p10b es-p20r es-p20l esdev-adapt-off" esd-custom-block-id="388986" align="left">
+                                        <table class="esdev-mso-table" width="560" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr th:each="element : ${cart.checkoutElements}">
+                                                <td class="esdev-mso-td" valign="top">
+                                                    <table class="es-left" cellspacing="0" cellpadding="0" align="left">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="es-m-p0r esd-container-frame" width="70" align="center">
+                                                                <table width="100%" cellspacing="0" cellpadding="0">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td class="esd-empty-container" align="center" style="display: none;"></td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td width="20"></td>
+                                                <td class="esdev-mso-td" valign="top" th:text="${element.eventName}">
+                                                    <table class="es-left" cellspacing="0" cellpadding="0" align="left">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="esd-container-frame" width="265" align="center">
+                                                                <table width="100%" cellspacing="0" cellpadding="0">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td class="esd-block-text" align="left">
+                                                                            <p><strong>Polo</strong></p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="esd-block-text es-p5t" align="left">
+                                                                            <p><br></p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td width="20"></td>
+                                                <td class="esdev-mso-td" valign="top" th:text="${element.ticket}">
+                                                    <table class="es-left" cellspacing="0" cellpadding="0" align="left">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="esd-container-frame" width="80" align="left">
+                                                                <table width="100%" cellspacing="0" cellpadding="0">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td class="esd-block-text" align="center">
+                                                                            <p>2 buc<br></p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                                <td width="20"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="esd-structure es-p15t es-p10b es-p20r es-p20l" align="left">
+                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td class="esd-container-frame" width="560" align="left">
+                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="esd-block-text es-p10t es-p10b" align="center">
+                                                                <br>
+                                                                <br>
+                                                                <p>Ne vedem la spectacol!<br></p>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="es-footer esd-footer-popover" cellspacing="0" cellpadding="0" align="center">
+                    <tbody>
+                    <tr>
+                        <td class="esd-stripe" esd-custom-block-id="388980" align="center">
+                            <table class="es-footer-body" style="background-color: transparent;" width="600" cellspacing="0" cellpadding="0" align="center">
+                                <tbody>
+                                <tr>
+                                    <td class="esd-structure es-p20t es-p20b es-p20r es-p20l" align="left">
+                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                            <tr>
+                                                <td class="esd-container-frame" width="560" align="left">
+                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td class="esd-block-text es-p35b" align="center">
+                                                                <p>Multumim,<br> Ticket Buddy</p>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
