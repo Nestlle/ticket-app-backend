@@ -7,7 +7,10 @@ import com.ticketApp.ticketApp.entity.TicketEntity;
 import com.ticketApp.ticketApp.entity.UserEntity;
 import org.modelmapper.ModelMapper;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Adapter {
@@ -64,8 +67,14 @@ public class Adapter {
     public static EventEntity convertEventForSaveDTOToEntity(EventForSaveDTO eventForSaveDTO) {
         ModelMapper modelMapper = new ModelMapper();
         EventEntity event = modelMapper.map(eventForSaveDTO, EventEntity.class);
-
         return event;
+    }
+
+    public static EventForSaveDTO convertEventEntityToEventForSaveDTO(EventEntity eventEntity){
+        ModelMapper modelMapper = new ModelMapper();
+        EventForSaveDTO eventDto = modelMapper.map(eventEntity, EventForSaveDTO.class);
+
+        return eventDto;
     }
 
     public static CategoryDTO convertCategoryEntityToDTO(CategoryEntity categoryEntity){

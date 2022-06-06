@@ -34,4 +34,6 @@ public class EventForSaveDTO {
     private byte[] photo;
 
     private Integer categoryID;
+
+    private List<EventTicketDto> tickets;
 }
